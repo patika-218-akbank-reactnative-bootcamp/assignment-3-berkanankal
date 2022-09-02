@@ -1,1 +1,26 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=8327966&assignment_repo_type=AssignmentRepo)
+# Telegram Clone
+
+## Instructions
+
+First clone this repository.
+```bash
+git clone https://github.com/patika-218-akbank-reactnative-bootcamp/assignment-3-berkanankal.git
+```
+
+Go to the project directory.
+```bash
+cd assignment-3-berkanankal
+```
+
+Install dependencies. Make sure you already have [`nodejs`](https://nodejs.org/en/) & [`npm`](https://www.npmjs.com/) installed in your system.
+```bash
+npm install
+```
+
+Run the app
+```bash
+npm run android
+```
+
+---
+![sss](https://user-images.githubusercontent.com/67144252/188226700-0d43a238-2637-4254-a7cf-bb23f5e1fb1a.png)
