@@ -5,26 +5,32 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Picker} from '@react-native-picker/picker';
+import ThemeContext from '../context/ThemeContext';
 
 const Login = () => {
   const [form, setForm] = useState({
+    countryCode: '+90',
     phoneNumber: '',
     firstName: '',
     lastName: '',
     userName: '',
   });
 
-  const [selectedValue, setSelectedValue] = useState();
+  const [selectedValue, setSelectedValue] = useState('+90');
+
+  console.log(form);
 
   return (
     <View style={styles.container}>
       <View style={styles.phoneNumber}>
         <Picker
           style={styles.phoneNumberPicker}
-          selectedValue={selectedValue}
-          onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
+          selectedValue={form.countryCode}
+          onValueChange={(itemValue, itemIndex) =>
+            setForm({...form, countryCode: itemValue})
+          }>
           <Picker.Item label="+90" value="+90" />
           <Picker.Item label="+1" value="+1" />
           <Picker.Item label="+33" value="+33" />
@@ -33,7 +39,7 @@ const Login = () => {
           style={styles.phoneNumberInput}
           keyboardType="numeric"
           placeholder="Phone Number"
-          onChangeText={phoneNumber => setForm({...form, phoneNumber})}
+          onChangeText={text => setForm({...form, phoneNumber: text})}
           value={form.phoneNumber}
         />
       </View>
