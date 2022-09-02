@@ -4,12 +4,15 @@ import {
   View,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import React, {useState, useContext} from 'react';
 import {Picker} from '@react-native-picker/picker';
-import ThemeContext from '../context/ThemeContext';
+import UserContext from '../context/UserContext';
 
 const Login = () => {
+  const {user, setUser} = useContext(UserContext);
+
   const [form, setForm] = useState({
     countryCode: '+90',
     phoneNumber: '',
@@ -20,7 +23,23 @@ const Login = () => {
 
   const [selectedValue, setSelectedValue] = useState('+90');
 
-  console.log(form);
+  const onSubmit = () => {
+    if (
+      form.countryCode &&
+      form.phoneNumber &&
+      form.firstName &&
+      form.lastName &&
+      form.userName
+    ) {
+      return setUser(form);
+    }
+
+    return Alert.alert('Lütfen tüm alanları doldurunuz.');
+  };
+
+  if (user) {
+    return <Text>user var</Text>;
+  }
 
   return (
     <View style={styles.container}>
@@ -61,7 +80,7 @@ const Login = () => {
         value={form.userName}
         placeholder="Username"
       />
-      <TouchableOpacity style={styles.login_button}>
+      <TouchableOpacity style={styles.login_button} onPress={onSubmit}>
         <Text style={styles.login_text}>Giriş Yap</Text>
       </TouchableOpacity>
     </View>
