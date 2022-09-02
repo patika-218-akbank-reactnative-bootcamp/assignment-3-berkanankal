@@ -9,6 +9,7 @@ import {
 import React, {useState, useContext} from 'react';
 import {Picker} from '@react-native-picker/picker';
 import UserContext from '../context/UserContext';
+import Profile from './Profile';
 
 const Login = () => {
   const {user, setUser} = useContext(UserContext);
@@ -20,8 +21,6 @@ const Login = () => {
     lastName: '',
     userName: '',
   });
-
-  const [selectedValue, setSelectedValue] = useState('+90');
 
   const onSubmit = () => {
     if (
@@ -38,7 +37,7 @@ const Login = () => {
   };
 
   if (user) {
-    return <Text>user var</Text>;
+    return <Profile />;
   }
 
   return (
